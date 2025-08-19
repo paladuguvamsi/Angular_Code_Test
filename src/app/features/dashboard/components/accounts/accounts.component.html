@@ -1,0 +1,44 @@
+<div fxLayout="row" class="accounts-title" fxLayoutAlign="start center" fxLayoutGap="8">
+    <mat-icon class="acl-circle-icon--large" fontIcon="account_balance_wallet"></mat-icon>
+    <span class="aligned-text">Your Accounts</span>
+</div>
+
+<div fxLayout="row" class="acl-text-bold acl-border-bottom acl-margin-top acl-padding-bottom">
+    <div fxLayout="column" fxFlex="60">
+        Bank(Currency)
+    </div>
+    <div fxLayout="column" fxFlex="40" fxLayoutAlign="center start">
+        <div fxLayout="row" fxLayoutGap="8">
+            <span>Balance</span>
+            <span class="help-tooltip">?
+            </span>
+        </div>
+    </div>
+</div>
+<div *ngFor="let account of accounts; let index = index" fxLayout="row" class="acl-padding-y"
+    [ngClass]="{'acl-border-bottom': index != accounts.length -1}"
+    fxLayoutAlign="space-between center">
+    <div fxLayout="row" fxLayoutGap="16" fxFlex="60" class="acl-text-blue">
+        <mat-icon>{{ account.icon }}</mat-icon>
+        <div>
+            <div fxLayout="row" fxLayoutGap="8">
+                <div><strong>{{ account.name }}</strong></div>
+                <span *ngIf="account.tootltip" class="help-tooltip">?
+                </span>
+            </div>
+            <div class="masked">{{ account.number }}</div>
+        </div>
+    </div>
+
+    <div fxFlex="40" fxLayout="column" fxLayoutAlign="center start">
+        <div fxLayout="row" fxLayoutGap="8">
+            <div><strong *ngIf="account.balance !== null">${{ account.balance | number:'1.2-2' }}</strong></div>
+            <mat-icon *ngIf="account.refresh" class="acl-margin-top--small"style="font-size:14px;">refresh</mat-icon>
+        </div>
+        <div *ngIf="account.updatedAt" class="acl-font-small">
+            Updated at {{ account.updatedAt | date:'MMM dd yyyy @ h:mma' }}
+        </div>
+    </div>
+</div>
+
+<button mat-flat-button color="primary" class="acl-margin-top--2x acl-no-border-radius">Add an Account</button>

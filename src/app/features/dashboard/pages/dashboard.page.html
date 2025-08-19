@@ -1,0 +1,66 @@
+<app-header />
+<app-sub-header />
+<div class="page-container auto-height-box">
+    <div fxLayout="row" class="main-title">
+        N and F Solutions
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center">
+        <button matButton="filled" class="acl-no-border-radius acl-margin-bottom--2x">Create Payment
+            Order</button>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="32">
+        <div fxFlex="50">
+            <app-accounts />
+        </div>
+        <div fxFlex="50">
+            <app-filter />
+        </div>
+    </div>
+
+    <div fxLayout="row" class="payment-order-title" fxLayoutAlign="start center" fxLayoutGap="8px">
+        <mat-icon class="acl-circle-icon--large">sticky_note_2</mat-icon>
+        <span class="aligned-text">Payment Orders</span>
+    </div>
+    <div class="tabs-container">
+        <div class="tabs">
+            <div class="tab active">In Progress (6)</div>
+            <div class="tab">Scheduled (6)</div>
+            <div class="tab">Pending Approval (0)</div>
+            <div class="tab">Draft (8)</div>
+        </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="start center" class="table-header"
+        style="background:#0b3558; color:white; padding:12px 16px; font-weight:600;">
+        <div fxFlex="20%">Order #</div>
+        <div fxFlex="30%">Processing Date</div>
+        <div fxFlex="30%">Status</div>
+        <div fxFlex="20%">Amount</div>
+    </div>
+
+    <div *ngFor="let order of orders; let i = index" fxLayout="row" fxLayoutAlign="space-between center"
+        [ngClass]="{'row-even': i % 2 === 0, 'row-odd': i % 2 !== 0}" class="table-row">
+        <div fxFlex="20%" class="cell order-number">
+            <a href="#">{{ order.orderNumber }}</a>
+        </div>
+        <div fxFlex="30%" class="cell">
+            {{ order.processingDate | date:'MMM dd yyyy' }}
+        </div>
+        <div fxFlex="30%" class="cell status-cell">
+            <mat-icon class="acl-text-white">settings</mat-icon> {{ order.status }}
+        </div>
+        <div fxFlex="20%" class="cell">
+            {{ order.amount | number:'1.2-2' }}
+        </div>
+    </div>
+
+    <div fxLayout="row" class="align-margin-top acl-text-blue">
+        View All Orders
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center">
+        <button matButton="filled" class="acl-no-border-radius align-margin-bottom">Create Payment
+            Order</button>
+    </div>
+</div>
+<app-footer />

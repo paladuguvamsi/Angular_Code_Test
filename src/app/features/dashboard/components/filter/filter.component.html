@@ -1,0 +1,53 @@
+<div class="content acl-margin-top--2x acl-margin-bottom--2x acl-padding--2x">
+    <div fxLayout="row" fxLayoutAlign="start center" class="pay-header">
+        <mat-icon class="acl-circle-icon">attach_money</mat-icon>
+        <h3 class="acl-text-blue acl-margin-left--2x">Quick Pay & Transfers</h3>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16">
+        <div fxLayout="column" fxFlex="50">
+            <button mat-flat-button color="primary" class="acl-no-border-radius">Quick Pay</button>
+        </div>
+        <div fxLayout="column" fxFlex="50">
+            <button matButton="outlined" class="acl-no-border-radius">Transfers</button>
+        </div>
+    </div>
+
+    <p class="info-text">
+        Quick Pay allows you to process single payments.
+        <span class="acl-text-blue acl-link">Create a Payment Order</span> if you need to process multiple payments, upload an invoice, or add
+        additional details.
+    </p>
+
+    <form class="pay-form" fxLayout="column" >
+        <mat-form-field appearance="fill">
+            <mat-label>Supplier</mat-label>
+            <mat-select required>
+                <mat-option *ngFor="let s of ['Supplier A', 'Supplier B']" [value]="s">{{ s }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Amount</mat-label>
+            <input matInput type="number" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Payment Method</mat-label>
+            <mat-select required>
+                <mat-option value="ach">ACH</mat-option>
+                <mat-option value="wire">Wire Transfer</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Remittance Notes</mat-label>
+            <input matInput placeholder="Remittance Notes">
+        </mat-form-field>
+
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div class="acl-text-blue acl-link">Clear</div>
+            <button mat-flat-button color="primary" class="acl-no-border-radius">Pay Now</button>
+        </div>
+    </form>
+</div>

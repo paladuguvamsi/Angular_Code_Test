@@ -1,0 +1,42 @@
+.sub-header-div {
+    color: black;
+    background-color: rgb(234, 231, 231);
+}
+
+.details-div {
+    height: 50px;
+}
+
+.circle-icon {
+    border: 2px solid #3f51b5;
+    border-radius: 50%;
+    padding: 8px;
+    font-size: 24px;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.auto-height-box {
+    min-height: 100px;
+    height: auto;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.text-color-error {
+    color: red;
+}
+
+.align-top-row {
+    margin-top: 4px;
+}
